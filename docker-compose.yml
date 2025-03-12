@@ -8,6 +8,13 @@ services:
       - .:/code
     ports:
       - 8000:8000
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_DEBUG=${DJANGO_DEBUG}
 
   db:
     image: postgres:16
