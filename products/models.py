@@ -14,5 +14,5 @@ class Product(models.Model):
     def __str__(self) -> str:
         return self.title
     
-    # def get_absolute_url(self):
-        # return reverse('product_detail', args=[self.id])
+    def get_absolute_url(self):
+       return reverse('product_detail', args=[self.pk])
