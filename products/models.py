@@ -35,7 +35,7 @@ class Comment(models.Model):
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     auther = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
-    body = models.TextField()
+    body = models.TextField(verbose_name='comment_text')
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS)
 
     
