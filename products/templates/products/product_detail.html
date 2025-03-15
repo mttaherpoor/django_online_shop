@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 
 {% load static%}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
 
@@ -114,7 +115,7 @@ Product Detail
                                         <div class="product-reviews">
                                             <h3 class="review__title">{{product.comments.all | only_active_comments | length}} نظر برای {{product.title}}</h3>
                                             <ul class="review__list">
-                                            {% for comment in product.comments.all | only_active_comments %}
+                                            {% for comment in product.comments.all|only_active_comments %}
                                                 <li class="review__item">
                                                     <div class="review__container">
                                                         <div class="review__text">
@@ -145,12 +146,12 @@ Product Detail
                                                 <div class="row">
                                                     <div class="border-top py-5 w-100"></div>
                                                     <div class="col-lg-8 m-auto">
-                                                        <span class="reply-title pull-right">نظر خود را بنویسید</span>
+                                                        <span class="reply-title pull-right">{% trans 'Write your commnet'%}</span>
                                                         <br>
                                                         <form action="{% url 'comment_create' product.id %}" method="post">
                                                             {% csrf_token %}
                                                             {{comment_form | crispy}}
-                                                            <input type="submit" value="ارسال">
+                                                            <input type="submit" value="{% trans 'Send'%}">
                                                         </form>
                                                     </div>
                                                 </div>

@@ -1,6 +1,8 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
+
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
@@ -35,7 +37,7 @@ class Comment(models.Model):
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
     auther = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
-    body = models.TextField(verbose_name='comment_text')
+    body = models.TextField(verbose_name=_('comment_text'))
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS)
 
     

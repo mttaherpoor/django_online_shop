@@ -1,9 +1,18 @@
 from django.views import generic
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
+from django.contrib import messages
+from django.utils.translation import gettext as _
 
 from .models import Product, Comment
 from .forms import CommentForm
 
+def say_hello(request):
+    result = _('Hello')
+    messages.success(request, 'This is a success.')
+    messages.warning(request, 'This is a warning.')
+    messages.error(request, 'This is a error.')
+
+    return render(request,'products/testhello.html')
 
 class ProductListView(generic.ListView):
     # model = Product   
