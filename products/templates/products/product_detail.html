@@ -45,14 +45,21 @@ Product Detail
                                     <span class="money old-price text-danger">{{product.price}} تومان</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                    <div class="quantity-wrapper d-flex justify-content-start">
-                                        <div class="quantity">
-                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
-                                        </div>
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    {% comment %} {{add_to_cart_from | crispy}} {% endcomment %}
+                                    <div class="quantity">
+                                        <input type="number" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
+                                    </div>
+                                    <button class="btn" type="submit">{% trans 'Add to cart'%} </button>
+
+                                
+                                </form>
+                                    {% comment %} <div class="quantity-wrapper d-flex justify-content-start">
                                     </div>
                                     <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">
                                         اضافه به سبد خرید
-                                    </button>
+                                    </button> {% endcomment %}
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
                                     <p><span class="m-0">دسته بندی ها:</span>

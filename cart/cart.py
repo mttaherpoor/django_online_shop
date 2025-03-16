@@ -1,15 +1,16 @@
 from django.db.models.query import QuerySet
+from django.http import HttpRequest
 
 from products.models import Product
 
 
 class Cart:
-    def __init__(self, request) :
+    def __init__(self, request: HttpRequest) :
         """
         Initialize the cart
         """
         self.request = request
-
+        
         self.session = request.session
         self.cart:dict =  self.session.get('cart', {})
     
