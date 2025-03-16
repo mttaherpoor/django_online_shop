@@ -1,7 +1,7 @@
 from django import template
 from django.db.models import QuerySet
 
-from models import Comment
+from products.models import Comment
 
 register = template.Library()
 
