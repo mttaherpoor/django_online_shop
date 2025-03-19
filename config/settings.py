@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'jalali_date',
+
     # 3rd party apps
     "crispy_forms",
     "crispy_bootstrap5",
