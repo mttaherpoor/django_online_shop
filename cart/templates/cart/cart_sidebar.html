@@ -1,6 +1,5 @@
 {% load i18n %}
 
-
 <aside class="mini-cart" id="miniCart">
     <div class="mini-cart-wrapper">
         <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
@@ -11,19 +10,21 @@
                     {% for item in cart %}
                         <li class="mini-cart__product d-flex justify-content-between">
                             <div class="mini-cart__product__image">
-                                <a href="#">
-                                    <img src="assets/img/products/prod-1-100x100.jpg">
-                                </a>
+                                    {% if item.product_obj.image %}
+                                        <a href="#">
+                                    <img src="{{item.product_obj.image.url}}">
+                                        </a>
+                                    {% endif %}
                             </div>
                             <div class="mini-cart__product__content pt-2">
                                 <span class="mini-cart__product__title d-flex flex-row justify-content-between">
-                                    <a href="#"> {{cart.product_obj.title}}</a>
+                                    <a href="{{item.product_obj.get_absolute_url}}"> {{item.product_obj.title}}</a>
                                     <a href="#" class="">
                                         &#10060;
                                     </a>
                                 </span>
                                 <span class="mini-cart__product__quantity">
-                                    <span>{{cart.product_obj.price}} {% trans '$' %}</span> &#215; <span>{{cart.quantity}}</span>
+                                    <span>{{item.product_obj.price}} {% trans '$' %}</span> &#215; <span>{{item.quantity}}</span>
                                 </span>
                             </div>
                         </li>
