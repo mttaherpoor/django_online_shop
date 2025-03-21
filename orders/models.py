@@ -1,3 +1,4 @@
+from django.db.models import QuerySet
 from django.db import models
 from django.conf import settings
 
@@ -15,6 +16,7 @@ class Order(models.Model):
     address = models.CharField(max_length=700)
 
     order_note = models.CharField(max_length=700, blank=True)
+    zarinpal_authority = models.CharField(max_length=255, blank=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True) 
@@ -22,6 +24,10 @@ class Order(models.Model):
     def __str__(self) -> str:
         return f'Order {self.id}'
 
+    def get_total_price(self):
+        items: QuerySet[OrderItem] = self.items.all()  
+        return sum(item.price*item.quantity for item in items)
+    
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')

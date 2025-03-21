@@ -41,6 +41,8 @@ def order_create_view(request:HttpRequest):
             request.user.last_name = order_obj.first_name
             request.user.save()
 
+            request.session['order_id'] = order_obj.id 
+            return redirect('paymnet:payment_process') 
             messages.success(request, _('Your order has successfully placed.'))
 
     return render(request, 'orders/order_create.html',{
