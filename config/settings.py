@@ -33,7 +33,6 @@ DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'jalali_date',
+    'django.contrib.humanize',
 
     # 3rd party apps
     "crispy_forms",
@@ -52,12 +51,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rosetta',
+    'jalali_date',
 
     # local apps
     'accounts',
     'pages',
     'products',
     'cart',
+    'persian_translate'
 ]
 
 MIDDLEWARE = [
