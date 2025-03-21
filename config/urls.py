@@ -28,6 +28,8 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('cart/', include('cart.urls')),
 
+    # ckeditor5
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
     
     #Rosetta (i18n)
     path('rosetta/', include('rosetta.urls')),

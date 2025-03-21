@@ -8,19 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-15 02:43+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-03-21 13:15+0330\n"
+"PO-Revision-Date: 2025-03-21 13:17+0330\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\templates\products\product_detail.html:149
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: .\models.py:10
+msgid "Product title"
+msgstr "اسم محصول"
+
+#: .\models.py:11
+msgid "Product description"
+msgstr "توضیحات محصول"
+
+#: .\models.py:12
+#| msgid "Product description"
+msgid "Product short description"
+msgstr "توضیحات کوتاه محصول"
+
+#: .\models.py:13
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:14
+msgid "active"
+msgstr "فعال"
+
+#: .\models.py:15
+msgid "Product_image"
+msgstr "عکس محصول"
+
+#: .\models.py:17
+msgid "Date Time of Created"
+msgstr "تاریخ و زمان ساخت"
+
+#: .\models.py:34
+msgid "Very Bad"
+msgstr "خیلی بد"
+
+#: .\models.py:35
+msgid "Bad"
+msgstr "بد"
+
+#: .\models.py:36
+msgid "Normal"
+msgstr "متوسط"
+
+#: .\models.py:37
+msgid "Good"
+msgstr "خوب"
+
+#: .\models.py:38
+msgid "Perfect"
+msgstr "عالی"
+
+#: .\models.py:43
+msgid "comment_text"
+msgstr "متن کامنت"
+
+#: .\templates\products\product_detail.html:38
+#: .\templates\products\product_detail.html:40
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\products\product_detail.html:52
+msgid "Add to cart"
+msgstr "اضافه کردن به سبد خرید"
+
+#: .\templates\products\product_detail.html:150
 msgid "Write your commnet"
 msgstr "نظر خود را بنویسید"
 
-#: .\templates\products\product_detail.html:154
+#: .\templates\products\product_detail.html:155
 msgid "Send"
 msgstr "ارسال"
+
+#: .\templates\products\product_detail.html:159
+msgid "To write your comment please "
+msgstr "نظر خود را بنویسید"
+
+#: .\templates\products\product_detail.html:160
+msgid "Login"
+msgstr "ورود"
+
+#: .\views.py:11
+msgid "Hello"
+msgstr "سلام"
