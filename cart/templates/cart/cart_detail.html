@@ -1,13 +1,14 @@
 {% extends "_base.html" %}
 
 {% load i18n %}
-
+{% load persian_translation_tags %}
+{% load humanize %}
 
 {% block content %}
     <!-- Main Wrapper Start -->
     <div class="wrapper">
          <!-- Breadcrumb area Start -->
-         {% trans 'Cart' as header_name %}
+        {% trans 'Cart' as header_name %}
         {% include "topheader.html" with header_name=header_name %}
         <!-- Breadcrumb area End -->
 
@@ -48,7 +49,7 @@
                                                             </td>
                                                             <td class="product-price">
                                                                 <span class="product-price-wrapper">
-                                                                    <span class="money">{{item.product_obj.price}}</span>
+                                                                    <span class="money">{{item.product_obj.price|intcomma:False | translate_number}} {% trans '$' %}</span>
                                                                 </span>
                                                             </td>
                                                             <td class="product-quantity">
@@ -60,7 +61,7 @@
                                                                             class="quantity-input" 
                                                                             name="quantity" 
                                                                             id="qty-1" 
-                                                                            value={{item.quantity}} 
+                                                                            value="{{item.quantity}}" 
                                                                             min="1"
                                                                         >
                                                                     </div>
@@ -70,7 +71,7 @@
                                                             </td>
                                                             <td class="product-total-price">
                                                                 <span class="product-price-wrapper">
-                                                                    <span class="money">{{item.total_price}}</span>
+                                                                    <span class="money">{{item.total_price |intcomma:False | translate_number}} {% trans '$' %}</span>
                                                                 </span>
                                                             </td>
                                                         </tr>
@@ -101,7 +102,7 @@
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{cart.get_total_price}} تومان</span>
+                                                    <span class="money">{{cart.get_total_price|intcomma:False | translate_number}} {% trans '$' %}</span>
                                                 </span>
                                             </div>
                                         </div>

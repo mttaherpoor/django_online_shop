@@ -14,10 +14,13 @@ class Cart:
         self.request = request
         
         self.session = request.session
-        self.cart:dict =  self.session.get('cart')
+
+        cart:dict =  self.session.get('cart')
         
-        if not self.cart:
-            self.session['cart'] = self.cart
+        if not cart:
+            cart = self.session['cart'] = {}
+
+        self.cart = cart
     
     def add(self, product, quantity=1, replace_current_quantity=False):
         """
