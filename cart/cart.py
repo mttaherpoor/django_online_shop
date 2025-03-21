@@ -79,3 +79,8 @@ class Cart:
 
     def get_total_price(self):
         return sum(item['product_obj'].price * item['quantity'] for item in self.cart.values()) 
+
+    def is_empty(self):
+        if self.cart:
+            return False
+        return True

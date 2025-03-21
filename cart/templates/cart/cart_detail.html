@@ -38,7 +38,7 @@
                                                         <tr>
                                                             <td class="product-remove text-left"><a href="{% url 'cart:cart_remove' item.product_obj.id %}"><i class="flaticon flaticon-cross"></i></a></td>
                                                             <td class="product-thumbnail text-left">
-                                                                <img src="assets/img/products/prod-10-70x88.jpg" alt="">
+                                                                <img src="{{item.product_obj.image.url}}" alt="">
                                                             </td>
                                                             <td class="product-name">
                                                                 <h3>
@@ -85,11 +85,15 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="row no-gutters border-top pt--20 mt--20">
-                                <div class="col-sm-6 text-sm-right">
-                                    <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                            {% if not cart.is_empty %}
+                                <div class="row no-gutters border-top pt--20 mt--20">
+                                    <div class="col-sm-6 text-sm-right">
+                                    <form action="{% url 'cart:cart_clear' %}" method="POST">{% csrf_token %}
+                                        <button type="submit" class="cart-form__btn">{% trans 'Empty Cart'%}</button>
+                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         </div>
                         <div class="col-lg-4">
                             <div class="cart-collaterals">
@@ -98,7 +102,7 @@
                                     <div class="cart-calculator">
                                         <div class="cart-calculator__item order-total">
                                             <div class="cart-calculator__item--head">
-                                                <span>جمع کل</span>
+                                                <span>{% trans 'Total'%}</span>
                                             </div>
                                             <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
@@ -108,8 +112,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                                    ثبت سفارش
+                                <a href="{% url 'order_create' %}" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                                    {% trans 'Checkout'%}
                                 </a>
                             </div>
                         </div>
@@ -118,34 +122,6 @@
             </div>
         </div>
         <!-- Main Content Wrapper Start -->
-
-        <!-- Footer Start-->
-        <footer class="footer">
-            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 text-center">
-                            <div class="footer-widget mb--50">
-                                <div class="textwidget">
-                                    <img src="assets/img/codingyar_logo.png" alt="Logo">
-                                </div>
-                            </div>
-                            <div class="footer-widget mb--50 pb--1">
-                                <ul class="footer-menu">
-                                    <li><a href="">درباره ما</a></li>
-                                    <li><a href="">قوانین و مقررات</a></li>
-                                    <li><a href="">تماس با ما</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-widget">
-                                Codingyar.com © | all rights reserved
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Footer End-->
 
         <!-- Search form Popup Start -->
         <div class="searchform__popup" id="searchForm">
