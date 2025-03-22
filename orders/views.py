@@ -29,7 +29,7 @@ def order_create_view(request:HttpRequest):
             for item in cart:
                 product :Product = item['product_obj']
                 OrderItem.objects.create(
-                    Order = order_obj,
+                    order = order_obj,
                     product = product,
                     quantity = item['quantity'],
                     price = product.price,
@@ -42,7 +42,7 @@ def order_create_view(request:HttpRequest):
             request.user.save()
 
             request.session['order_id'] = order_obj.id 
-            return redirect('paymnet:payment_process') 
+            return redirect('payment:payment_process') 
             messages.success(request, _('Your order has successfully placed.'))
 
     return render(request, 'orders/order_create.html',{
